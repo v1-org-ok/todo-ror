@@ -1,1 +1,71 @@
-<h1>Show Specific Todo</h1>
+<div class="w-full p-3">
+  <section class="py-1 bg-blueGray-50">
+    <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
+      <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
+
+        <div class="block w-full overflow-x-auto ">
+          <table class="items-center border rounded-md border-slate-700 bg-transparent w-full">
+            <thead>
+            <tr>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Title
+              </th>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Description
+              </th>
+            </tr>
+            </thead>
+
+            <tbody class="border border-slate-700">
+            <tr>
+              <td class="px-6 align-middle border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4 ">
+                ID
+              </td>
+              <td class="px-6 align-middle border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4 ">
+                <%= @todo.id %>
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 align-middle border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4 ">
+                Title
+              </td>
+              <td class="px-6 align-middle border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4 ">
+                <%= @todo.title %>
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 align-middle border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4 ">
+                Description
+              </td>
+              <td class="px-6 align-center border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4">
+                <%= @todo.description %>
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 align-middle border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4 ">
+                Is Completed?
+              </td>
+              <td class="px-6 align-middle border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4">
+                <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                <% if @todo.is_done %>
+                  <i>YES</i>
+                <% else %>
+                  <i>NO</i>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 align-middle border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4 ">
+                <%= link_to "Edit", todo_edit_path(@todo), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+              </td>
+              <td class="px-6 align-middle border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4">
+                Delete
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

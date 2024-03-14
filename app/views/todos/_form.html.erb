@@ -1,10 +1,10 @@
-<%= form_with(model: todo, class: "contents") do |form| %>
-  <%# if todo.errors.any? %>
-<!--    <h1>Errors:</h1>-->
-    <%# todo.errors.each do |error| %>
-<!--      <li><%#= error %></li>-->
-    <%# end %>
-  <%# end %>
+<%= form_with(model: todo) do |form| %>
+  <% if todo.errors.any? %>
+    <h1>Errors:</h1>
+    <% todo.errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  <% end %>
   <div>
     <%= form.label :title %>*
     <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Start Typing Title here..." %>

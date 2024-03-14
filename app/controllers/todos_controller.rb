@@ -21,6 +21,19 @@ class TodosController < ApplicationController
     end
   end
 
+  def edit
+    @todo = Todo.find(params[:id])
+  end
+
+  def update
+    @todo = Todo.find(params[:id])
+    if @todo.update(todo_param)
+      redirect_to todo_show_url(@todo)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def todo_param
