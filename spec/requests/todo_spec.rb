@@ -65,4 +65,23 @@ RSpec.describe "Todos", type: :request do
       expect(response).to have_http_status(422)
     end
   end
+
+  describe 'DELETE /destroy ' do
+    before(:each) do
+      @todo_created = Todo.create! todo
+    end
+    it 'should remove todo if todo_id is valid' do
+      expect { delete todo_delete_url(@todo_created) }.to change(Todo, :count).by(-1)
+    end
+
+    it 'should redirect to index page after successful deletion of Todo' do
+      delete todo_delete_url(@todo_created)
+      expect(response).to redirect_to(todo_index_url)
+    end
+
+    it 'should not remove todo if todo_id is invalid' do
+      invalid_todo_id = -1
+      expect { delete todo_delete_url(invalid_todo_id) }.to raise_error(ActiveRecord::RecordNotFound, "Couldn't find Todo with 'id'=-1")
+    end
+  end
 end

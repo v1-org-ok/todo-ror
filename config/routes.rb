@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
   get 'todos/:id/edit', to: 'todos#edit', as: 'todo_edit'
   post 'todos', to: 'todos#create', as: 'todo_create'
+  delete 'todos/:id', to: 'todos#destroy', as: 'todo_delete'
+
   root "todos#index"
 end

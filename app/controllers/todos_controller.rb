@@ -34,6 +34,16 @@ class TodosController < ApplicationController
     end
   end
 
+  def destroy
+    @todo = Todo.find(params[:id])
+
+    if @todo.delete
+      redirect_to todo_index_url
+    else
+      render :delete, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def todo_param

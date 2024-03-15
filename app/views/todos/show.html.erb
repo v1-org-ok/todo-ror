@@ -59,7 +59,7 @@
                 <%= link_to "Edit", todo_edit_path(@todo), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
               </td>
               <td class="px-6 align-middle border border-solid border-blueGray-100 text-xs whitespace-nowrap p-4">
-                Delete
+                <%= button_to "Delete", @todo, method: :delete, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
               </td>
             </tr>
             </tbody>
