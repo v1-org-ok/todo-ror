@@ -26,4 +26,30 @@ RSpec.describe Todo, type: :model do
   end
 
 
+  describe 'update' do
+    before do
+      @todo = Todo.create(title: 'Initial Title', description: 'Initial Description', is_done: false)
+    end
+
+    context 'with valid attributes' do
+      it 'updates the todo' do
+        @todo.update(title: 'Updated Title', description: 'Updated Description', is_done: true)
+
+        expect(@todo).to be_valid
+        expect(@todo.title).to eq('Updated Title')
+        expect(@todo.description).to eq('Updated Description')
+        expect(@todo.is_done).to be true
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'does not update the todo' do
+        @todo.update(title: nil) # Assuming title is required
+
+        expect(@todo).not_to be_valid
+        expect(@todo.errors[:title]).to include("can't be blank")
+      end
+    end
+  end
+
 end
