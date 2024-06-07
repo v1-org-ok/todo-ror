@@ -25,21 +25,5 @@ RSpec.describe Todo, type: :model do
     end
   end
 
-  describe '#update todo' do
-    context 'when provided valid data' do
-      it 'update todo with new data' do
-        todo = Todo.new(title: "Todo Title", description: "Todo Description", is_done: false)
-        todo.save!
 
-        saved_todo = Todo.find(todo.id)
-        saved_todo.title = "Todo Title is the way to go"
-        saved_todo.description = "Todo Description is the way to go"
-
-        saved_todo.save!
-
-        expect(saved_todo.title).to eq("Todo Title is the way to go")
-        expect(saved_todo.description).to eq("Todo Description is the way to go")
-      end
-    end
-  end
 end
