@@ -17,7 +17,7 @@ jobs:
           - 5432:5432
         env:
           POSTGRES_USER: root
-          POSTGRES_PASSWORD: root
+          POSTGRES_PASSWORD: root 
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -35,7 +35,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        gem install bundler
+        gem install bundler -v 2.4.22
         bundle install
 
     - name: Set up database
