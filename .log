@@ -1,0 +1,20 @@
+> rbenv install --list-all
+
+> rbenv install 3.1.2
+
+> sudo apt install libpq-dev
+
+> docker run --name todo_app_postgres \
+  -e POSTGRES_USER=root \
+  -e POSTGRES_PASSWORD=root \
+  -e POSTGRES_DB=todo_app_development \
+  -p 5432:5432 \
+  -d postgres
+
+> rails assets:precompile
+
+> rails db:migrate
+
+> rails s
+
+> rspec
