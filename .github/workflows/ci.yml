@@ -31,11 +31,11 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '2.7' # Specify the Ruby version you are using
+        ruby-version: '3.1.2' # Update to the Ruby version specified in your Gemfile
 
     - name: Install dependencies
       run: |
-        gem install bundler -v 2.4.22
+        gem install bundler
         bundle install
 
     - name: Set up database
